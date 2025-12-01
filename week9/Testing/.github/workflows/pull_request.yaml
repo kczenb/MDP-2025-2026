@@ -1,0 +1,25 @@
+name: run_all_tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    run-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Grant access for gradle
+        run: chmod +x gradlew
+
+      - name: Run unit tests
+        run: ./gradlew clean testDebug
