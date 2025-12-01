@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BusTrack2"
+rootProject.name = "ShoppingCart"
 include(":app")
  
